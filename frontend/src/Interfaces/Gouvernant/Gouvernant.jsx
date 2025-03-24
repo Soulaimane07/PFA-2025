@@ -1,11 +1,14 @@
 import React from 'react'
-import GouvernantPage from '../../Pages/Gouvernant/Gouvernant'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Dashboard from '../../Pages/Gouvernant/Dashboard/Dashboard'
 
 function Gouvernant() {
   return (
-    <div>
-        <GouvernantPage />
-    </div>
+    <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Dashboard />} />
+        </Routes>
+    </BrowserRouter>
   )
 }
 

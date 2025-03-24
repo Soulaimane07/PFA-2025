@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 
 function Header() {
   return (
-    <div className='flex p-20 space-x-10'>
+    <div className='flex py-20 px-40 space-x-10'>
         <div className=" w-full flex flex-col items-start">
             <div className='flex items-center space-x-4 mb-10'>
-                <hr className='w-40 h-1 bg-blue-500 rounded-full border-0' />
+                <hr className='w-40 h-1 bg-blue-400 rounded-full border-0' />
                 <p className='text-blue-600 font-semibold'>No credit card required</p>
             </div>
             <h1 className='font-semibold text-5xl'>The largest Cloud-Based Water management system</h1>
