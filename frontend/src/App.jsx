@@ -5,7 +5,7 @@ import Gouvernant from './Interfaces/Gouvernant/Gouvernant';
 function App() {
   return (
     <>
-      {/* <Auth /> */}
+      <Auth />
       <Gouvernant />
     </>
   )
