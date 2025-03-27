@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+.loginimage {
+  background-image:url("4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.headerimage{
+  background-image: url("5.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 540px;
+}
+
+.customer {
+  height: 440px;
+}
+
