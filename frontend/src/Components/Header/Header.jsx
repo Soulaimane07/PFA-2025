@@ -4,7 +4,7 @@ import { IoNotifications } from "react-icons/io5";
 
 function Header() {
   return (
-    <div className='flex items-center justify-between mb-10'>
+    <div className='flex items-center justify-between mb-6'>
       <div>
 
       </div>

@@ -22,3 +22,39 @@
 .Notifications {
   width: 370px;
 }
+
+
+
+
+
+.map-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.map-svg {
+  display: block;
+}
+
+.city-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.city-name {
+  font-size: 12px;
+  margin-left: 5px;
+  color: black;
+  font-weight: bold;
+}

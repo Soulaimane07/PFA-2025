@@ -61,11 +61,11 @@ function Charts() {
 
   return (
     <div className=' bg-white p-4 px-5 w-full rounded-md shadow-md'>
-        <div className='flex  space-x-2 mb-14'>
+        <div className='flex w-fit  mb-14 rounded-md overflow-hidden'>
             {charts.map((chart, index) => (
                 <button 
                     key={index} 
-                    className={`'flex cursor-pointer hover:bg-blue-400 hover:text-white transition-all px-4 flex-col items-center justify-center p-2 rounded-md shadow-sm mt-2' ${chartSelected.title === chart.title ? 'bg-blue-400 text-white' : 'bg-gray-100 text-gray-500'}`}
+                    className={`cursor-pointer hover:bg-blue-100 hover:text-blue-700 hover:opacity-100 transition-all px-4 p-1.5  ' ${chartSelected.title === chart.title ? 'bg-blue-100 text-blue-700 opacity-100' : 'bg-gray-00 opacity-70 text-gray-500'}`}
                     onClick={() => setChartSelected(chart)}
                 >
                     {chart.title}
