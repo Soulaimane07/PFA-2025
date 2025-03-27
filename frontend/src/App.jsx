@@ -4,10 +4,11 @@ import Gouvernant from './Interfaces/Gouvernant/Gouvernant';
 
 function App() {
   return (
-    <>
+    <div >
       <Auth />
       <Gouvernant />
-    </>
+      <div className='h-screen'></div>
+    </div>
   )
 }
 

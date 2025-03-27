@@ -15,7 +15,7 @@ function Navbar() {
         {
             "title": "Dashboard",
             "icon": LuLayoutDashboard,
-            "link": "/"
+            "link": "/Dashboard"
         },
         {
             "title": "Statistiques",
