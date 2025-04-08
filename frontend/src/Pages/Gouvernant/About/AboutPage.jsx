@@ -1,8 +1,10 @@
 import React from "react";
-import Footer from '../../Pages/Auth/LandingPage/Footer'
-import Navbar from "../Auth/LandingPage/Navbar";
-import logo from "../../../public/Logo.jpeg"; 
-import teamPhoto from "../../../public/Logo_solo.png"; 
+import Footer from '../../../Pages/Auth/LandingPage/Footer'
+import Navbar from "../../Auth/LandingPage/Navbar";
+import logo from "../../../../public/Logo.jpeg"; 
+import teamPhoto from "../../../../public/Logo_solo.png"; 
+
+
 export default function AboutPage() {
   const team = [
     "Feirouz EL MOUHTADI",

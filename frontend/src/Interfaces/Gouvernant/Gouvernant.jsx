@@ -4,7 +4,7 @@ import Dashboard from '../../Pages/Gouvernant/Dashboard/Dashboard/Dashboard'
 import Regions from '../../Pages/Gouvernant/Regions/Regions'
 import Statistics from '../../Pages/Gouvernant/Statistics/Statistics'
 import Notification from "../../Pages/Gouvernant/Notifications/Notification"
-import AboutPage from '../../Pages/Gouvernant/AboutPage'
+import AboutPage from '../../Pages/Gouvernant/About/AboutPage'
 
 function Gouvernant() {
   return (
