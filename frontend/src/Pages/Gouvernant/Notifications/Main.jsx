@@ -8,23 +8,23 @@ function Main() {
   const listenotification = notifications
   
   return (
-    <div className='bg-white p-4 px-5 w-full  rounded-md shadow-md '>
+    <div className='bg-white p-4 px-5 w-full  rounded-md shadow-md min-h-screen '>
       <div className='flex justify-between items-center '>
-        <h1 className='text-2xl font-bold opacity-50 mb-4 '> Notifications ( {listenotification.length} ) </h1>
+        <h1 className='text-2xl font-bold opacity-50 mb-4  '> Notifications ( {listenotification.length} ) </h1>
         <div className='flex items-center'>
-          <div className='flex items-center  bg-gray-300 px-3 rounded-md py-1'>
+          <div className='flex items-center  bg-gray-100 transition-all px-3 rounded-md py-1'>
             <IoSearchOutline size={20} className='text-gray-500' />
             <input type="search" placeholder='Search for notifications' className='w-60 py-1 px-4 outline-none' />
           </div>
 
-          <button className='bg-blue-700 rounded-md text-white py-2 px-6 m-2'>Create Notification</button>
+          <button className='bg-blue-500 rounded-md font-medium text-white py-2 px-6 m-2 transition-all hover:bg-blue-400 cursor-pointer'>Create Notification</button>
         </div>
       </div>
 
 
-      <div className='flex flex-wrap justify-center space-x-6 mt-10 space-y-6'>
-        {listenotification.map((notif) => (
-          <Notification id={1} data={notif} />
+      <div className='grid grid-cols-3 gap-6 px-10 justify-center items-center mt-10'>
+        {listenotification.map((notif, key) => (
+          <Notification key={key} id={1} data={notif} />
         ))}
       </div>
     </div>
