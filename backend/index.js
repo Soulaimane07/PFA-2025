@@ -10,6 +10,18 @@ app.use(cors({
 
 app.use(express.json());
 
+
+
+
+
+
+
+const usersList = []
+
+
+// API Endpoints
+
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '1.html'));
 });
@@ -18,20 +30,31 @@ app.post('/login', (req, res) => {
     const var1 = req.body.email
     const var2= req.body.password
 
-    if (req.body.email==='feirouz@gmail.com') {
+
+    // list.find(item => item === 3)
+
+    if (usersList.find(user => user.email === var1 )) {
         res.status(200).send({ var1, var2 })  
     } else {
         res.status(400).send("notapproved")
    }
 
     // email==='feirouz@gmail.com' ? res.status(200).send({email,password}) : res.status(400).send("notapproved")
-
-
 });
 
 app.post('/signup', (req, res) => {
-    
-    res.send('hello world (POST)');
+    const fullname = req.body.fullName
+    const email = req.body.email
+    const password = req.body.password
+
+    usersList.push({ email, password, fullname })
+
+    if (usersList.find(user => user.email === email)) {
+        res.status(200).send({ email, password, fullname })  
+    }
+    else {
+        res.status(400).send("notapproved")
+    }
 });
 
 // Tu peux décommenter ceux-là si tu veux les tester
