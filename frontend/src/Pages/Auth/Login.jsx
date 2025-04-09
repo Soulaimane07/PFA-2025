@@ -1,15 +1,28 @@
 import React from "react"
 import { useState } from "react"
+import axios from "axios"
+import {useNavigate} from "react-router-dom"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const navigate = useNavigate()
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle login logic here
-    console.log("Login attempt with:", { email, password })
+
+    axios.post('http://localhost:3000/login', {email, password})
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
+
+
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-blue-100 to-white">
     
@@ -30,7 +43,6 @@ export default function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-gray-200/80 border-0 h-12 px-4 rounded-md placeholder:text-gray-500"
-                  required
                 />
               </div>
 
@@ -45,7 +57,6 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full bg-gray-200/80 border-0 h-12 px-4 rounded-md placeholder:text-gray-500"
-                  required
                 />
               </div>
 
