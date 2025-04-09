@@ -10,9 +10,6 @@ app.use(cors({
 
 app.use(express.json());
 
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, '1.html'));
-});
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '1.html'));
 });
