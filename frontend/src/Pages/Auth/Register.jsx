@@ -1,4 +1,5 @@
 "use client"
+import axios from "axios"
 import React from "react"
 import { useState } from "react"
 
@@ -9,8 +10,14 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle registration logic here
-    console.log("Registration attempt with:", { fullName, email, password })
+
+    axios.post("http://localhost:3000/signup", { fullName, email, password })
+      .then((response) => {
+        console.log(response.data)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   return (

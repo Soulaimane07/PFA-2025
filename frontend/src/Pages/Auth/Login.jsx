@@ -1,5 +1,6 @@
 import React from "react"
 import { useState } from "react"
+import axios from "axios"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
@@ -7,9 +8,17 @@ export default function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle login logic here
-    console.log("Login attempt with:", { email, password })
-  }
+
+    axios.post("http://localhost:3000/login", { email, password })
+      .then((response) => {
+        console.log(response.data)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+    }
+
+
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-blue-100 to-white">
     
