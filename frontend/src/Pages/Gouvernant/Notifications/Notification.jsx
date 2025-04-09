@@ -10,9 +10,8 @@ function Notification() {
         <Navbar />
 
         <main className='flex-1 px-10 py-4'>
-        <Header />
-              <Main />
-
+          <Header />
+          <Main />
       </main>
     </div>
   )
