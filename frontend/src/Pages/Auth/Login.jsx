@@ -2,6 +2,7 @@ import React from "react"
 import { useState } from "react"
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
+import { DangerAlert } from "../../Components/Alerts/Alerts"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
@@ -10,14 +11,24 @@ export default function LoginPage() {
   const navigate = useNavigate()
 
 
+
+
+  const [showAlert, setShowAlert] = useState(false)
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
     axios.post('http://localhost:3000/login', {email, password})
       .then(res => {
         console.log(res)
+        if(res.status === 200){
+          setShowAlert(false)
+          navigate("/dashboard")
+        }
       })
       .catch(err => {
+        setShowAlert(true)
         console.log(err)
       })
   }
@@ -30,6 +41,8 @@ export default function LoginPage() {
         <div className="w-full md:w-2/3 flex flex-col justify-center px-8 md:px-12 py-12">
           <div className="max-w-md mx-auto w-full">
             <h1 className="text-3xl md:text-4xl font-bold mb-10">Login to your Account</h1>
+
+            {showAlert === true && <DangerAlert message="Invalid email or password" />}
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">

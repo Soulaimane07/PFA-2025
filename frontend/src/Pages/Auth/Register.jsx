@@ -2,11 +2,15 @@
 import axios from "axios"
 import React from "react"
 import { useState } from "react"
+import { DangerAlert } from "../../Components/Alerts/Alerts"
+import { Navigate, useNavigate } from "react-router-dom"
 
 export default function Register() {
   const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [showAlert, setShowAlert] = useState(false)
+ const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -14,9 +18,16 @@ export default function Register() {
     axios.post("http://localhost:3000/signup", { fullName, email, password })
       .then((response) => {
         console.log(response.data)
+        if(response.status === 200) {
+          setShowAlert(false)
+          navigate("/dashboard")
+        }
+
       })
       .catch((error) => {
         console.error(error)
+        setShowAlert(true)
+      
       })
   }
 
@@ -42,6 +53,7 @@ export default function Register() {
       <div className="w-full md:w-2/3 flex flex-col justify-center px-8 md:px-12 py-12 bg-gradient-to-br from-blue-100 to-white">
         <div className="max-w-md mx-auto w-full">
           <h1 className="text-3xl md:text-4xl font-bold mb-10">Create your Account</h1>
+          {showAlert==true && <DangerAlert message="email already existed"/>}
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
