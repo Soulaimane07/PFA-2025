@@ -1,71 +1,69 @@
-const express = require('express');
+const express = require("express");
+const mongoose = require("mongoose");
 const cors = require('cors');
-const path = require('path');
+const User = require("./Models/User")
+
 const app = express();
-const port = 3000;
-
-app.use(cors({
-    origin: 'http://localhost:5173'
-}));
-
 app.use(express.json());
 
 
+mongoose.connect("mongodb+srv://elmouhtadifeirouz:iLSNLqdibQ4oVfA8@cluster0.5uce3ne.mongodb.net/usersDB")
+.then(() => console.log("MongoDB connected"))
+.catch((err) => console.log(err));
+
+
+app.use(cors({
+  origin: 'http://localhost:5173'
+}));
 
 
 
 
-
-const usersList = []
-
-
-// API Endpoints
-
+// Endpoints
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '1.html'));
+  res.sendFile(path.join(__dirname, '1.html'));
 });
 
-app.post('/login', (req, res) => {
-    const var1 = req.body.email
-    const var2= req.body.password
+app.post('/signup', async (req, res) => {
+    const { fullName, email, password } = req.body;
+    
 
+  try {
+    const existingUser = await User.findOne({ email });
+    if (existingUser) return res.status(409).send('Email already exists');
 
-    // list.find(item => item === 3)
+    const newUser = new User({ fullName, email, password });
+    await newUser.save();
 
-    if (usersList.find(user => user.email === var1 )) {
-        res.status(200).send({ var1, var2 })  
+    res.status(201).send({ fullName, email });
+  } catch (err) {
+    res.status(500).send('Server error');
+  }
+});
+
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (user && user.password === password) {
+      res.status(200).send({ email, fullName: user.fullName });
     } else {
-        res.status(400).send("notapproved")
-   }
-
-    // email==='feirouz@gmail.com' ? res.status(200).send({email,password}) : res.status(400).send("notapproved")
+      res.status(401).send('Invalid email or password');
+    }
+  } catch (err) {
+    res.status(500).send('Server error');
+  }
 });
 
-app.post('/signup', (req, res) => {
-    const fullname = req.body.fullName
-    const email = req.body.email
-    const password = req.body.password
 
-    usersList.push({ email, password, fullname })
 
-    if (usersList.find(user => user.email === email)) {
-        res.status(200).send({ email, password, fullname })  
-    }
-    else {
-        res.status(400).send("notapproved")
-    }
-});
 
-// Tu peux décommenter ceux-là si tu veux les tester
-// app.put('/', (req, res) => {
-//     res.send('hello world (PUT)');
-// });
 
-// app.delete('/', (req, res) => {
-//     res.send('hello world (DELETE)');
-// });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
