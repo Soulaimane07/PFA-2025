@@ -5,6 +5,7 @@ import Regions from '../../Pages/Gouvernant/Regions/Regions'
 import Statistics from '../../Pages/Gouvernant/Statistics/Statistics'
 import Notification from "../../Pages/Gouvernant/Notifications/Notification"
 import AboutPage from '../../Pages/Gouvernant/About/AboutPage'
+import Devices from '../../Pages/Gouvernant/Devices/Devices'
 
 function Gouvernant() {
   return (
@@ -15,6 +16,7 @@ function Gouvernant() {
         <Route path='/regions' element={<Regions />} />
         <Route path='/notifications' element={<Notification />} />
         <Route path='/about' element={<AboutPage />} />
+        <Route path='/devices' element={<Devices />} />
       </Routes>
     </BrowserRouter>
   )
