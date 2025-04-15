@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../../../Components/Navbar/Navbar";
+import Header from "../../../Components/Header/Header";
+import Main from "./Main";
 
 // Simple icon components to avoid external dependencies
 const Icons = {
@@ -112,62 +114,19 @@ function Button({ variant = "default", children, onClick }) {
 }
 
 export default function AccountsPage() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [accounts, setAccounts] = useState([
-    { id: 1, name: "Soulaimane Ouhmida", type: "Gouvernant", typeColor: "yellow", region: "Region 1", city: "Marrakech" },
-    { id: 2, name: "Fatima Zahra Keladi", type: "Operateur", typeColor: "green", region: "Region 2", city: "Casablanca" },
-    { id: 3, name: "Hamza Ettakadoumi", type: "Admin", typeColor: "blue", region: "Region 3", city: "Rabat" },
-  ]);
+  const users = []
 
-  const handleSearch = (e) => setSearchQuery(e.target.value);
 
-  const handleCreateAccount = () => alert("Create account clicked");
-
-  const handleUpdateAccount = (id) => alert(`Update account ${id}`);
-
-  const handleDeleteAccount = (id) => {
-    if (window.confirm(`Are you sure you want to delete account ${id}?`)) {
-      setAccounts(accounts.filter((account) => account.id !== id));
-    }
-  };
-
-  const filteredAccounts = accounts.filter(
-    (account) =>
-      account.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      account.type.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      account.region.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      account.city.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   return (
     <div className="bg-gray-50 flex">
       <Navbar />
 
       <main className="flex-1 px-10 py-4">
-        {/* Header */}
-        <header className="bg-white border-b border-gray-200 py-4 px-6 flex items-center justify-between">
-          <div className="flex items-center">
-            <div className="text-gray-700">
-              <div className="text-lg font-medium">8:00 AM</div>
-              <div className="text-xs text-gray-500">Sun 12 March, 2023</div>
-            </div>
-            <div className="ml-8 flex items-center">
-              <span className="text-2xl font-medium">12°C</span>
-            </div>
-          </div>
-          <div className="flex items-center">
-            <button className="relative p-2 mr-4">
-              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-            </button>
-            <div className="flex items-center border rounded-full px-4 py-2 bg-white">
-              <span className="mr-2">Soulaimane - Gouvernant</span>
-            </div>
-          </div>
-        </header>
+        <Header />
+        <Main />
 
-        {/* Content */}
-        <main className="flex-1 overflow-auto p-6 bg-gray-50">
-          <div className="flex justify-between items-center mb-6">
+          {/* <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-medium text-gray-700">Accounts ({accounts.length})</h1>
             <div className="flex items-center">
               <div className="relative mr-4">
@@ -185,7 +144,6 @@ export default function AccountsPage() {
             </div>
           </div>
 
-          {/* Accounts Table */}
           <div className="bg-white rounded-lg overflow-hidden shadow-sm">
             <table className="w-full">
               <thead>
@@ -222,8 +180,7 @@ export default function AccountsPage() {
                 ))}
               </tbody>
             </table>
-          </div>
-        </main>
+          </div> */}
       </main>
     </div>
   );

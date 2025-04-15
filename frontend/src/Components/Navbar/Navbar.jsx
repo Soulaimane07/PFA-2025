@@ -15,7 +15,7 @@ function Navbar() {
         {
             "title": "Dashboard",
             "icon": LuLayoutDashboard,
-            "link": "/dashboard"
+            "link": "/"
         },
         {
             "title": "Statistiques",
@@ -58,7 +58,7 @@ function Navbar() {
     ]
 
   return (
-    <div className='h-screen bg-white w-64 px-6 py-10'>
+    <div className='h-screen sticky top-0 left-0 bg-white w-64 px-6 py-10'>
         <img src='logo.jpeg' alt='logo' className='w-40 mx-auto' />
 
         <div className='mb-10 mt-10'>

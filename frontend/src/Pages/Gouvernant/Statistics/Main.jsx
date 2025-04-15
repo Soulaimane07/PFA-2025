@@ -15,10 +15,6 @@ function Main() {
 
         <div className='px-10'>
             <Chart1 />
-            
-
-            
-
             <PieChartComp />
             <Chart3 />
         </div>

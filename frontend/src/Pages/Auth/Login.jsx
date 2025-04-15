@@ -21,10 +21,12 @@ export default function LoginPage() {
 
     axios.post('http://localhost:3000/login', {email, password})
       .then(res => {
-        console.log(res)
+        console.log(res.data)
         if(res.status === 200){
           setShowAlert(false)
-          navigate("/dashboard")
+          localStorage.setItem("aiwater-user", JSON.stringify(res.data))
+          navigate("/")
+          window.location.reload()
         }
       })
       .catch(err => {

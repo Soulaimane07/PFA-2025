@@ -1,13 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require('cors');
+const path = require('path');
 const User = require("./Models/User")
 
 const app = express();
 app.use(express.json());
 
 
-mongoose.connect("mongodb+srv://elmouhtadifeirouz:iLSNLqdibQ4oVfA8@cluster0.5uce3ne.mongodb.net/usersDB")
+mongoose.connect("mongodb://root:example@localhost:27017/pfa2025?authSource=admin")
 .then(() => console.log("MongoDB connected"))
 .catch((err) => console.log(err));
 
@@ -26,8 +27,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/signup', async (req, res) => {
-    const { fullName, email, password } = req.body;
-    
+  const { fullName, email, password } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
@@ -53,6 +53,16 @@ app.post('/login', async (req, res) => {
     } else {
       res.status(401).send('Invalid email or password');
     }
+  } catch (err) {
+    res.status(500).send('Server error');
+  }
+});
+
+
+app.get('/users', async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json(users);
   } catch (err) {
     res.status(500).send('Server error');
   }

@@ -3,12 +3,17 @@ import Auth from './Interfaces/Auth/Auth';
 import Gouvernant from './Interfaces/Gouvernant/Gouvernant';
 
 function App() {
+
+  const user = JSON.parse(localStorage.getItem('aiwater-user'))
+  console.log(user)
+
+
+
   return (
-    <div >
-      <Auth />
-      <Gouvernant />
-      {/* <div className='h-screen'></div> */}
-    </div>
+      user === null ?
+        <Auth />
+      :
+        <Gouvernant />
   )
 }
 

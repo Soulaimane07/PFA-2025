@@ -18,9 +18,11 @@ export default function Register() {
     axios.post("http://localhost:3000/signup", { fullName, email, password })
       .then((response) => {
         console.log(response.data)
-        if(response.status === 200) {
+        if(response.status === 201) {
           setShowAlert(false)
-          navigate("/dashboard")
+          localStorage.setItem("aiwater-user", JSON.stringify(response.data))
+          navigate("/")
+          window.location.reload()
         }
 
       })
@@ -30,6 +32,8 @@ export default function Register() {
       
       })
   }
+
+  
 
   return (
     <div className="flex min-h-screen bg-white">
