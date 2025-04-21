@@ -4,7 +4,6 @@ import { IoSearchOutline } from 'react-icons/io5'
 import CreateUser from './CreateUser/CreateUser'
 
 function Main() {
-
     const [userslist, setUserslist] = useState([])
 
     useEffect(()=> {
@@ -17,9 +16,6 @@ function Main() {
             console.log(err)
         })
     }, [])
-
-
-
 
     const [openCreate, setOpenCreate] = useState(false)
 
@@ -78,49 +74,6 @@ function Main() {
 
             {openCreate && <CreateUser setOpenCreate={setOpenCreate} />}
         </div>
-    // <div className='bg-white p-4 px-5 w-full  rounded-md shadow-md min-h-screen'>
-    //     <h1 className='text-2xl font-bold opacity-50 mb-8'> Accounts ({userslist.length}) </h1>
-
-    //     <div className='px-10'>
-    //         <div className="bg-white rounded-lg overflow-hidden shadow-sm">
-    //         <table className="w-full">
-    //           <thead>
-    //             <tr className="border-b border-gray-200">
-    //               <th className="text-left py-2 px-4 text-xs font-medium text-gray-500">Account name</th>
-    //               <th className="text-left py-2 px-4 text-xs font-medium text-gray-500">Type</th>
-    //               <th className="text-left py-2 px-4 text-xs font-medium text-gray-500">Region</th>
-    //               <th className="text-left py-2 px-4 text-xs font-medium text-gray-500">City</th>
-    //               <th className="text-left py-2 px-4 text-xs font-medium text-gray-500">Actions</th>
-    //             </tr>
-    //           </thead>
-    //           <tbody>
-    //             {userslist.map((account) => (
-    //               <tr key={account.id} className="border-b border-gray-200">
-    //                 <td className="py-2 px-4 text-xs">{account.email}</td>
-    //                 <td className="py-2 px-4 text-xs">
-    //                   <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium text-white bg-${account.typeColor}-500`}>
-    //                     {account.type}
-    //                   </span>
-    //                 </td>
-    //                 <td className="py-2 px-4 text-xs">{account.fullName}</td>
-    //                 <td className="py-2 px-4 text-xs">{account.city}</td>
-    //                 <td className="py-2 px-4 text-xs">
-    //                   <div className="flex space-x-2">
-    //                     <button className="px-3 py-1 rounded text-xs bg-gray-200 hover:bg-gray-300" onClick={() => handleUpdateAccount(account.id)}>
-    //                       Update
-    //                     </button>
-    //                     <button className="px-3 py-1 rounded text-xs bg-red-500 text-white hover:bg-red-600" onClick={() => handleDeleteAccount(account.id)}>
-    //                       Delete
-    //                     </button>
-    //                   </div>
-    //                 </td>
-    //               </tr>
-    //             ))}
-    //           </tbody>
-    //         </table>
-    //         </div>
-    //     </div>
-    // </div>
   )
 }
 

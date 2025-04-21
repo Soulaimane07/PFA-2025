@@ -7,7 +7,7 @@ import { IoBarChartOutline } from "react-icons/io5";
 import { CiStreamOn } from "react-icons/ci";
 import { FiUsers } from "react-icons/fi";
 import { MdOutlinePlace } from "react-icons/md";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 function Navbar() {
@@ -59,7 +59,9 @@ function Navbar() {
 
   return (
     <div className='h-screen sticky top-0 left-0 bg-white w-64 px-6 py-10'>
-        <img src='logo.jpeg' alt='logo' className='w-40 mx-auto' />
+        <Link to="/">
+            <img src='logo.jpeg' alt='logo' className='w-40 mx-auto' />
+        </Link>
 
         <div className='mb-10 mt-10'>
             <h2 className='text-sm font-semibold opacity-40 mt-4'>Menu</h2>

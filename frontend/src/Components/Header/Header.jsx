@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
 import { IoNotifications } from "react-icons/io5";
 import Weater from '../Weater/Weater';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
 
 
@@ -29,10 +29,12 @@ function Header() {
       </div>
 
       <div className=' h-20 items-center justify-center flex space-x-8'>
-        <button> <IoNotifications size={24} /> </button>
+        <Link to="/notifications" className='hover:text-gray-800 transition-all cursor-pointer'> 
+          <IoNotifications size={24} /> 
+        </Link>
 
         <div className='relative'>
-          <button onClick={()=> setShowLogout(!showLogout)}  className='flex min-w-84 justify-between cursor-pointer shadow-md items-center rounded-full bg-white py-3 px-5 space-x-10'> 
+          <button onClick={()=> setShowLogout(!showLogout)}  className='flex min-w-84 transition-all hover:bg-gray-50 justify-between cursor-pointer shadow-md items-center rounded-full bg-white py-3 px-5 space-x-10'> 
             <p>
               <span className='font-medium'> {user.fullName}  </span>
               <span> - Gouvernant </span>
