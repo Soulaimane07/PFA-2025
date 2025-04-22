@@ -39,32 +39,40 @@ function Main() {
                 <thead>
                     <tr className="border-b border-gray-200">
                     <th className="text-left py-2 px-4 text-xs font-medium text-gray-500">Account name</th>
+                    <th className="text-left py-2 px-4 text-xs font-medium text-gray-500">Full name</th>
                     <th className="text-left py-2 px-4 text-xs font-medium text-gray-500">Type</th>
                     <th className="text-left py-2 px-4 text-xs font-medium text-gray-500">Region</th>
                     <th className="text-left py-2 px-4 text-xs font-medium text-gray-500">City</th>
-                    <th className="text-left py-2 px-4 text-xs font-medium text-gray-500">Actions</th>
+                    <th className="text-left py-2 px-4 text-xs font-medium text-gray-500"></th>
                     </tr>
                 </thead>
                 <tbody>
                     {userslist.map((account) => (
                     <tr key={account.id} className="border-b border-gray-200">
-                        <td className="py-2 px-4 text-xs">{account.email}</td>
+                        <td className="py-2 px-4 text-md font-medium">{account.email}</td>
+                        <td className="py-2 px-4 text-xs">{account.fullName}</td>
                         <td className="py-2 px-4 text-xs">
                         <span className={`inline-block px-2 py-0.5 rounded text-xs font-medium text-white bg-${account.typeColor}-500`}>
                             {account.type}
                         </span>
                         </td>
-                        <td className="py-2 px-4 text-xs">{account.fullName}</td>
+                        <td className="py-2 px-4 text-xs">{account.city}</td>
                         <td className="py-2 px-4 text-xs">{account.city}</td>
                         <td className="py-2 px-4 text-xs">
-                        <div className="flex space-x-2">
-                            <button className="px-3 py-1 rounded text-xs bg-gray-200 hover:bg-gray-300" onClick={() => handleUpdateAccount(account.id)}>
-                            Update
-                            </button>
-                            <button className="px-3 py-1 rounded text-xs bg-red-500 text-white hover:bg-red-600" onClick={() => handleDeleteAccount(account.id)}>
-                            Delete
-                            </button>
-                        </div>
+                            <div className="flex space-x-2">
+                                <button  
+                                    className="px-3 py-1 rounded text-xs bg-gray-200 hover:bg-gray-300 cursor-pointer" 
+                                    onClick={() => handleUpdateAccount(account.id)}
+                                >
+                                    Update
+                                </button>
+                                <button 
+                                    className="px-3 py-1 rounded text-xs bg-red-500 text-white hover:bg-red-600 cursor-pointer" 
+                                    onClick={() => handleDeleteAccount(account.id)}
+                                >
+                                    Delete
+                                </button>
+                            </div>
                         </td>
                     </tr>
                     ))}
