@@ -5,9 +5,6 @@ import Gouvernant from './Interfaces/Gouvernant/Gouvernant';
 function App() {
 
   const user = JSON.parse(localStorage.getItem('aiwater-user'))
-  console.log(user)
-
-
 
   return (
       user === null ?

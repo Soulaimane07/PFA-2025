@@ -45,7 +45,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Get user by ID
+// Get user by ID  
 router.get('/users/:id', async (req, res) => {
   const { id } = req.params;
 

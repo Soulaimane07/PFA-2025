@@ -6,6 +6,10 @@ import Charts from './Charts'
 import Notifications from './Notifications'
 
 function Dashboard() {
+
+  
+  
+
   return (
     <div className='bg-gray-50 flex'>
         <Navbar />

@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { BarchartData } from '../../../../Components/Variables';
+import { GetChartsData } from '../../../../Components/Functions';
 
 function Charts() {
+    let data = GetChartsData()
+    console.log(data);
+
+
     const [chartSelected, setChartSelected] = useState(BarchartData[0])
 
   return (

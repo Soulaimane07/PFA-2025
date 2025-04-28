@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const cors = require('cors');
 const path = require('path');
 const userRoutes = require('./API/Routes/userRoutes');
+const chartRoutes = require('./API/Routes/chartsRoutes');
+const NotificationsRoutes = require('./API/Routes/NotificationsRoutes')
+
 
 const app = express();
 app.use(express.json());
@@ -22,8 +25,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'welcome.html'));
 });
 
-// Use user routes
+// Use routes
 app.use('/', userRoutes);
+app.use('/charts', chartRoutes);
+app.use('/notifications', NotificationsRoutes)
 
 // Start the server
 const PORT = 3000;
