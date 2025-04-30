@@ -1,5 +1,6 @@
 import React from 'react'
 import { IoSettingsOutline } from "react-icons/io5";
+import { useSelector } from 'react-redux';
 
 function Cards() {
     const cards = [
@@ -9,7 +10,7 @@ function Cards() {
         },
         {
             "title": "Nombre de regions",
-            "value": 50
+            "value": useSelector(state => state.regions.data?.length)
         },
         {
             "title": "Nombre de notifications",

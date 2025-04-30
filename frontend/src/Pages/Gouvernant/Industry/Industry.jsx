@@ -1,14 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Navbar from '../../../Components/Navbar/Navbar'
 import Header from '../../../Components/Header/Header'
 import Main from './Main'
-import { useDispatch } from 'react-redux';
-import { fetchRegions } from '../../../App/Slices/regionsSlice';
 
-function Regions() {
-  
-
-
+function Industry() {
   return (
     <div className='bg-gray-50 flex'>
         <Navbar />
@@ -21,4 +16,4 @@ function Regions() {
   )
 }
 
-export default Regions
+export default Industry

@@ -5,6 +5,9 @@ const path = require('path');
 const userRoutes = require('./API/Routes/userRoutes');
 const chartRoutes = require('./API/Routes/chartsRoutes');
 const NotificationsRoutes = require('./API/Routes/NotificationsRoutes')
+const regionRoutes = require('./API/Routes/Regions/regionRoutes')
+const cityRoutes = require('./API/Routes/Regions/cityRoutes')
+const industryRoutes = require('./API/Routes/Regions/industryRoutes')
 
 
 const app = express();
@@ -29,6 +32,9 @@ app.get('/', (req, res) => {
 app.use('/', userRoutes);
 app.use('/charts', chartRoutes);
 app.use('/notifications', NotificationsRoutes)
+app.use('/regions', regionRoutes)
+app.use('/cities', cityRoutes)
+app.use('/industries', industryRoutes)
 
 // Start the server
 const PORT = 3000;

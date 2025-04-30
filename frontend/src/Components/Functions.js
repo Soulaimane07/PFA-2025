@@ -18,3 +18,24 @@ export const GetChartsData = () =>{
         
     return data
 }
+
+
+
+
+
+export const GetCities = (regionid) => {
+    const [data, setData] = useState([])
+
+    useEffect(()=> {
+        axios.get(`${backendURL}/regions/${regionid}`)
+            .then(res => {
+                // setData(res.data)
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }, [])
+        
+    return data
+}
+
