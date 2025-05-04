@@ -29,12 +29,12 @@ export const GetCities = (regionid) => {
     useEffect(()=> {
         axios.get(`${backendURL}/regions/${regionid}`)
             .then(res => {
-                // setData(res.data)
+                setData(res.data)
             })
             .catch(err => {
                 console.error(err);
             })
-    }, [])
+    }, [regionid])
         
     return data
 }

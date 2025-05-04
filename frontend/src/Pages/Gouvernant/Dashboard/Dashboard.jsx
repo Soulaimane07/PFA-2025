@@ -1,15 +1,11 @@
 import React from 'react'
-import Navbar from '../../../../Components/Navbar/Navbar'
-import Header from '../../../../Components/Header/Header'
+import Navbar from '../../../Components/Navbar/Navbar'
+import Header from '../../../Components/Header/Header'
 import Cards from './Cards'
 import Charts from './Charts'
 import Notifications from './Notifications'
 
 function Dashboard() {
-
-  
-  
-
   return (
     <div className='bg-gray-50 flex'>
         <Navbar />

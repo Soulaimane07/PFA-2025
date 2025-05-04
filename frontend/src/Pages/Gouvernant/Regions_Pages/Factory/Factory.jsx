@@ -1,9 +1,9 @@
 import React from 'react'
-import Navbar from '../../../Components/Navbar/Navbar'
-import Header from '../../../Components/Header/Header'
 import Main from './Main'
+import Navbar from '../../../../Components/Navbar/Navbar'
+import Header from '../../../../Components/Header/Header'
 
-function Industry() {
+function Factory() {
   return (
     <div className='bg-gray-50 flex'>
         <Navbar />
@@ -16,4 +16,4 @@ function Industry() {
   )
 }
 
-export default Industry
+export default Factory

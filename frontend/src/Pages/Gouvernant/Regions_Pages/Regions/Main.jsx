@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import MapContent from './MapContent';
 import { useSelector } from 'react-redux';
-import StyledTable from '../../../Components/Table/StyledTable';
+import StyledTable from '../../../../Components/Table/StyledTable';
 
 function Main() {
   const [option, setOption] = useState(0)
@@ -25,7 +25,8 @@ function Main() {
           columns={[
             { header: 'Region name', accessor: 'name', link: (item) => `${item._id}` },
             { header: 'Cities', accessor: 'cities' },
-            { header: 'Industries', accessor: 'industries' },
+            { header: 'Factories', accessor: 'factories' },
+            { header: 'Devices', accessor: 'devices' },
             { header: '', accessor: '' },
           ]}
         />  

@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const Region = require("../../Models/Regions/Region");
 const City = require("../../Models/Regions/City");
-const Industry = require("../../Models/Regions/Industry");
+const Factory = require("../../Models/Regions/Factory");
+const Device = require("../../Models/Device");
 
 // Get all regions
 router.get('/', async (req, res) => {
@@ -18,9 +19,16 @@ router.get('/', async (req, res) => {
     }, {});
     
     // Fetch all cities and group them by regionId
-    const industries = await Industry.find();
-    const industryCountsByRegion = industries.reduce((acc, industry) => {
-      acc[industry.regionId] = (acc[industry.regionId] || 0) + 1;
+    const factories = await Factory.find();
+    const factoryCountsByRegion = factories.reduce((acc, factory) => {
+      acc[factory.regionId] = (acc[factory.regionId] || 0) + 1;
+      return acc;
+    }, {});
+
+    // Fetch all cities and group them by regionId
+    const devices = await Device.find();
+    const deviceCountsByRegion = devices.reduce((acc, device) => {
+      acc[device.regionId] = (acc[device.regionId] || 0) + 1;
       return acc;
     }, {});
 
@@ -28,7 +36,8 @@ router.get('/', async (req, res) => {
     const regionsWithCityCounts = regions.map(region => ({
       ...region.toObject(),
       cities: cityCountsByRegion[region._id] || 0,
-      industries: industryCountsByRegion[region._id] || 0
+      factories: factoryCountsByRegion[region._id] || 0,
+      devices: deviceCountsByRegion[region._id] || 0
     }));
 
     res.status(200).json(regionsWithCityCounts);
@@ -60,15 +69,15 @@ router.get('/:id', async (req, res) => {
     if (!region) return res.status(404).send('Region not found');
     const cities = await City.find({regionId: id})
 
-    const industriesdata = await Industry.find();
-    const industryCountsByRegion = industriesdata.reduce((acc, industry) => {
-      acc[industry.regionId] = (acc[industry.regionId] || 0) + 1;
+    const factoriesdata = await Factory.find();
+    const factoryCountsByRegion = factoriesdata.reduce((acc, factory) => {
+      acc[factory.regionId] = (acc[factory.regionId] || 0) + 1;
       return acc;
     }, {});
 
-    const industries = industryCountsByRegion[region._id] || 0
+    const factories = factoryCountsByRegion[region._id] || 0
 
-    res.status(200).json({region, cities, industries});
+    res.status(200).json({region, cities, factories});
   } catch (err) {
     res.status(500).send('Server error');
   }

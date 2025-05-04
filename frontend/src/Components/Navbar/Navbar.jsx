@@ -23,24 +23,24 @@ function Navbar() {
             "link": "/statistiques"
         },
         {
-            "title": "Notifications",
-            "icon": IoNotificationsOutline ,
-            "link": "/notifications"
-        },
-        {
-            "title": "Accounts",
-            "icon": FiUsers,
-            "link": "/accounts"
-        },
-        {
             "title": "Regions",
             "icon": MdOutlinePlace,
             "link": "/regions"
         },
         {
+            "title": "Notifications",
+            "icon": IoNotificationsOutline ,
+            "link": "/notifications"
+        },
+        {
             "title": "Devices",
             "icon": CiStreamOn,
             "link": "/devices"
+        },
+        {
+            "title": "Accounts",
+            "icon": FiUsers,
+            "link": "/accounts"
         }
     ]
 

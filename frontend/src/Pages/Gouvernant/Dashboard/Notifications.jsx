@@ -1,5 +1,6 @@
 import React from 'react'
-import { notifications } from '../../../../Components/Variables'
+// import { notifications } from '../../../../Components/Variables'
+import { useSelector } from 'react-redux';
 
 function Notifications() {
 
@@ -9,6 +10,8 @@ function Notifications() {
     </div>
   )
 
+
+  const notifications = useSelector(state => state.notifications.data)
 
   return (
     <div className='Notifications bg-white  p-4 px-5  rounded-md shadow-md'>

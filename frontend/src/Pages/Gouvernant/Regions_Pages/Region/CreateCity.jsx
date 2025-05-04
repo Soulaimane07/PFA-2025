@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { MdOutlineClose } from "react-icons/md";
-import { backendURL } from '../../../Components/Variables';
+import { backendURL } from '../../../../Components/Variables';
 import { useDispatch } from 'react-redux';
-import { fetchRegion } from '../../../App/Slices/regionSlice';
-import { fetchRegions } from '../../../App/Slices/regionsSlice';
+import { fetchRegion } from '../../../../App/Slices/regionSlice';
+import { fetchRegions } from '../../../../App/Slices/regionsSlice';
+import { fetchCities } from '../../../../App/Slices/citiesSlice';
+import SubmitButton from '../../../../Components/Buttons/SubmitButton';
 
 function CreateCity({ setOpenCreate, region, city = null }) {
   const dispatch = useDispatch();
@@ -31,6 +33,7 @@ function CreateCity({ setOpenCreate, region, city = null }) {
           setOpenCreate(false);
           dispatch(fetchRegion(region._id));
           dispatch(fetchRegions());
+          dispatch(fetchCities());
         }
       })
       .catch((err) => {
@@ -75,12 +78,7 @@ function CreateCity({ setOpenCreate, region, city = null }) {
             />
           </div>
 
-          <button
-            type="submit"
-            className="w-full h-12 bg-blue-400 hover:bg-blue-500 text-white font-medium text-lg rounded-md"
-          >
-            {city ? 'Update City' : 'Create City'}
-          </button>
+          <SubmitButton text={city ? "Update City" : "Create City"} />
         </form>
       </div>
     </div>

@@ -7,7 +7,8 @@ const chartRoutes = require('./API/Routes/chartsRoutes');
 const NotificationsRoutes = require('./API/Routes/NotificationsRoutes')
 const regionRoutes = require('./API/Routes/Regions/regionRoutes')
 const cityRoutes = require('./API/Routes/Regions/cityRoutes')
-const industryRoutes = require('./API/Routes/Regions/industryRoutes')
+const FactoriesRoutes = require('./API/Routes/Regions/factoriesRoutes')
+const devicesRoutes = require('./API/Routes/devicesRoutes')
 
 
 const app = express();
@@ -34,7 +35,8 @@ app.use('/charts', chartRoutes);
 app.use('/notifications', NotificationsRoutes)
 app.use('/regions', regionRoutes)
 app.use('/cities', cityRoutes)
-app.use('/industries', industryRoutes)
+app.use('/factories', FactoriesRoutes)
+app.use('/devices', devicesRoutes)
 
 // Start the server
 const PORT = 3000;

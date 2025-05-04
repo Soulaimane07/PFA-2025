@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const City = require("../../Models/Regions/City");
-const Industry = require("../../Models/Regions/Industry");
+const Factory = require("../../Models/Regions/Factory");
 
 // Get all citys
 router.get('/', async (req, res) => {
@@ -36,11 +36,11 @@ router.get('/:id', async (req, res) => {
     const city = await City.findById(id);
     if (!city) return res.status(404).send('City not found');
 
-    // Find industries associated with the city
-    const industries = await Industry.find({ cityId: id });
+    // Find factories associated with the city
+    const factories = await Factory.find({ cityId: id });
 
-    // Return the city along with its industries
-    res.status(200).json({ city, industries });
+    // Return the city along with its factories
+    res.status(200).json({ city, factories });
   } catch (err) {
     res.status(500).send('Server error');
   }

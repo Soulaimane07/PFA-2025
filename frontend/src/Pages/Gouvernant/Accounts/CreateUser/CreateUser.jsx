@@ -1,5 +1,6 @@
 import React from 'react'
 import { MdOutlineClose } from "react-icons/md";
+import SubmitButton from '../../../../Components/Buttons/SubmitButton';
 
 
 function CreateUser({setOpenCreate}) {
@@ -7,7 +8,7 @@ function CreateUser({setOpenCreate}) {
     <div className='fixed top-0 left-0 w-full h-full bg-black/20 flex items-center justify-center'>
       <div className='bg-white p-5 rounded-md shadow-md w-1/3 min-h-80 py-6'>
         <div className='flex items-center justify-between mb-4 px-4'>
-            <h1 className='text-2xl font-bold'> Create User </h1>
+            <h1 className='text-2xl font-bold'> Create Account </h1>
             <button onClick={()=> setOpenCreate(false)} className='text-gray-500 cursor-pointer hover:text-gray-700'> <MdOutlineClose size={26} /> </button>
         </div>
         
@@ -37,7 +38,7 @@ function CreateUser({setOpenCreate}) {
                 <input type="password" placeholder='Enter your Password here' className='w-full bg-gray-200/80 border-0 h-12 px-4 rounded-md placeholder:text-gray-500' required />
             </div>
     
-            <button type="submit" className='w-full h-12 cursor-pointer bg-blue-400 hover:bg-blue-500 text-white font-medium text-lg rounded-md'>Create Account</button>
+            <SubmitButton text="Create Account" />
         </form>
       </div>
     </div>

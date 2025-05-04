@@ -1,12 +1,33 @@
 import { configureStore } from '@reduxjs/toolkit';
 import regionsReducer from './Slices/regionsSlice';
 import regionReducer from './Slices/regionSlice';
-import citiesReducer from './Slices/citySlice';
+
+import citiesReducer from './Slices/citiesSlice';
+import cityReducer from './Slices/citySlice';
+
+import factoriesReducer from './Slices/factoriesSlice';
+import factoryReducer from './Slices/factorySlice';
+
+import devicesiesReducer from './Slices/devicesSlice';
+import notificationsReducer from './Slices/notificationsSlice';
+import accountsSlice from './Slices/accountsSlice';
+
+
+
 
 export const store = configureStore({
   reducer: {
     regions: regionsReducer,
     region: regionReducer,
-    city: citiesReducer,
+
+    cities: citiesReducer,
+    city: cityReducer,
+    
+    factories: factoriesReducer,
+    factory: factoryReducer,
+
+    devices: devicesiesReducer,
+    notifications: notificationsReducer,
+    accounts: accountsSlice,
   },
 });

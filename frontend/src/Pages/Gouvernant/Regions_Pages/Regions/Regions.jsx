@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import Navbar from '../../../Components/Navbar/Navbar'
-import Header from '../../../Components/Header/Header'
+import Navbar from '../../../../Components/Navbar/Navbar'
+import Header from '../../../../Components/Header/Header'
 import Main from './Main'
 import { useDispatch } from 'react-redux';
-import { fetchRegions } from '../../../App/Slices/regionsSlice';
+import { fetchRegions } from '../../../../App/Slices/regionsSlice';
 
 function Regions() {
   

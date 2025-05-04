@@ -5,20 +5,20 @@ import { useSelector } from 'react-redux';
 function Cards() {
     const cards = [
         {
-            "title": "Nombre de devices",
-            "value": 100
+            "title": "Number of devices",
+            "value": useSelector(state => state.devices.data?.length) || 0
         },
         {
-            "title": "Nombre de regions",
-            "value": useSelector(state => state.regions.data?.length)
+            "title": "Number of regions",
+            "value": useSelector(state => state.regions.data?.length) || 0
         },
         {
-            "title": "Nombre de notifications",
-            "value": 10
+            "title": "Number of notifications",
+            "value": useSelector(state => state.notifications.data?.length) || 0
         },
         {
-            "title": "Nombre d'accounts",
-            "value": 500
+            "title": "Number of accounts",
+            "value": useSelector(state => state.accounts.data?.length) || 0
         }
     ]
 
