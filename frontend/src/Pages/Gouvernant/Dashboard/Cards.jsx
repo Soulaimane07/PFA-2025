@@ -3,6 +3,9 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { useSelector } from 'react-redux';
 
 function Cards() {
+    const notifications = useSelector(state => state.notifications.data)
+    const unreadNotifications = notifications?.filter(n => !n.read);
+
     const cards = [
         {
             "title": "Number of devices",
@@ -14,7 +17,7 @@ function Cards() {
         },
         {
             "title": "Number of notifications",
-            "value": useSelector(state => state.notifications.data?.length) || 0
+            "value": unreadNotifications?.length || 0
         },
         {
             "title": "Number of accounts",

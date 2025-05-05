@@ -26,7 +26,7 @@ function App() {
     dispatch(fetchFactories());
     dispatch(fetchDevices());
     dispatch(fetchAccounts());
-    dispatch(fetchNotifications());
+    dispatch(fetchNotifications(user?._id));
   }, [dispatch]);
   
 

@@ -4,8 +4,8 @@ import { backendURL } from '../../Components/Variables';
 // Async thunk to fetch notifications
 export const fetchNotifications = createAsyncThunk(
   'notifications/fetchNotifications',
-  async () => {
-    const response = await fetch(`${backendURL}/notifications`); // replace with your actual API
+  async (userId) => {
+    const response = await fetch(`${backendURL}/notifications/userId/${userId}`); // replace with your actual API
     const data = await response.json();
     return data;
   }

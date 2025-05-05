@@ -4,6 +4,7 @@ import { IoNotifications } from "react-icons/io5";
 import Weater from '../Weater/Weater';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 
 
 function Header() {
@@ -22,6 +23,11 @@ function Header() {
     window.location.reload()
   }
 
+
+
+  const notifications = useSelector(state => state.notifications.data)
+  const unreadNotifications = notifications?.filter(n => !n.read);
+
   return (
     <hea className='flex items-center justify-between mb-6'>
       <div>
@@ -29,8 +35,9 @@ function Header() {
       </div>
 
       <div className=' h-20 items-center justify-center flex space-x-8'>
-        <Link to="/notifications" className='hover:text-gray-800 transition-all cursor-pointer'> 
-          <IoNotifications size={24} /> 
+        <Link to="/notifications" className=' relative hover:opacity-60 opacity-80 hover:text-gray-800 transition-all cursor-pointer'> 
+          <IoNotifications size={24} />
+          <span className='bg-red-500 rounded-full py-0.5 text-xs font-medium flex items-center px-2 text-white absolute -top-2 -right-2'> {unreadNotifications?.length} </span> 
         </Link>
 
         <div className='relative'>
