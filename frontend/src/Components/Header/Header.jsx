@@ -44,7 +44,7 @@ function Header() {
           <button onClick={()=> setShowLogout(!showLogout)}  className='flex min-w-84 transition-all hover:bg-gray-50 justify-between cursor-pointer shadow-md items-center rounded-full bg-white py-3 px-5 space-x-10'> 
             <p>
               <span className='font-medium'> {user.fullName}  </span>
-              <span> - Gouvernant </span>
+              <span> - {user.role} </span>
             </p>
             {!showLogout ? <FaAngleUp size={20} /> :  <FaAngleDown size={20} />}
           </button>

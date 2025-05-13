@@ -14,16 +14,16 @@ router.get('/users', async (req, res) => {
 
 // Signup
 router.post('/signup', async (req, res) => {
-  const { fullName, email, password } = req.body;
+  const { fullName, email, password, role } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) return res.status(409).send('Email already exists');
 
-    const newUser = new User({ fullName, email, password });
+    const newUser = new User({ fullName, email, password, role });
     await newUser.save();
 
-    res.status(201).send({ fullName, email });
+    res.status(201).send({ fullName, email, role });
   } catch (err) {
     res.status(500).send('Server error');
   }
@@ -36,7 +36,7 @@ router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ email });
     if (user && user.password === password) {
-      res.status(200).send({ _id: user._id, email, fullName: user.fullName });
+      res.status(200).send({ _id: user._id, email, fullName: user.fullName, role: user.role });
     } else {
       res.status(401).send('Invalid email or password');
     }
@@ -61,12 +61,12 @@ router.get('/users/:id', async (req, res) => {
 // Update user
 router.put('/users/:id', async (req, res) => {
   const { id } = req.params;
-  const { fullName, email, password } = req.body;
+  const { fullName, email, password, role } = req.body;
 
   try {
     const user = await User.findByIdAndUpdate(
       id,
-      { fullName, email, password },
+      { fullName, email, password, role },
       { new: true }
     );
     if (!user) return res.status(404).send('User not found');

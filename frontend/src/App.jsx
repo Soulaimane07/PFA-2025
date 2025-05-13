@@ -8,6 +8,8 @@ import { fetchCities } from './App/Slices/citiesSlice';
 import { fetchFactories } from './App/Slices/factoriesSlice';
 import { fetchAccounts } from './App/Slices/accountsSlice';
 import { fetchNotifications } from './App/Slices/notificationsSlice';
+import Directeur from './Interfaces/Directeur/Directeur';
+import Operateur from './Interfaces/Operateur/Operateur';
 
 function App() {
 
@@ -31,10 +33,15 @@ function App() {
   
 
   return (
-      user === null ?
+      user === null 
+      ?
         <Auth />
-      :
-        <Gouvernant />
+      : (
+          user.role === "gouvernant" && <Gouvernant />,
+          user.role === "directeur" && <Directeur />,
+          user.role === "operateur" && <Operateur />
+      )
+        
   )
 }
 
