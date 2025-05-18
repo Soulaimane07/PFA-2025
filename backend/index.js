@@ -38,6 +38,10 @@ app.use('/cities', cityRoutes)
 app.use('/factories', FactoriesRoutes)
 app.use('/devices', devicesRoutes)
 
+
+const mlRoutes = require('./API/Routes/mlRoutes');
+app.use('/ml', mlRoutes);
+
 // Start the server
 const PORT = 3000;
 app.listen(PORT, () => {
