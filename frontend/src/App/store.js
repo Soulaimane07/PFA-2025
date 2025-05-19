@@ -12,6 +12,7 @@ import devicesiesReducer from './Slices/devicesSlice';
 import notificationsReducer from './Slices/notificationsSlice';
 import accountsSlice from './Slices/accountsSlice';
 
+import waterdataSlice from './Slices/waterDataSlice';
 
 
 
@@ -29,5 +30,7 @@ export const store = configureStore({
     devices: devicesiesReducer,
     notifications: notificationsReducer,
     accounts: accountsSlice,
+    
+    waterdata: waterdataSlice,
   },
 });

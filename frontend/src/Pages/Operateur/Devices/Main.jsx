@@ -11,7 +11,7 @@ function Main() {
     const [openCreate, setOpenCreate] = useState(false)
 
   return (
-    <div className='bg-white p-4 px-5 w-full  rounded-md shadow-md min-h-screen '>
+    <div className='bg-white p-10 w-full  rounded-md shadow-md min-h-screen '>
       <div className='flex justify-between items-center '>
         <h1 className='text-2xl font-bold opacity-50 mb-4  '> Devices ( {devices?.length} ) </h1>
         <div className='flex items-center'>

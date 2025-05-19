@@ -7,9 +7,6 @@ import Notifications from './Notifications'
 
 
 function Dashboard({pages}) {
-
-  
-
   return (
     <div className='bg-gray-50 flex'>
         <Navbar pages={pages} />

@@ -10,6 +10,7 @@ import { fetchAccounts } from './App/Slices/accountsSlice';
 import { fetchNotifications } from './App/Slices/notificationsSlice';
 import Directeur from './Interfaces/Directeur/Directeur';
 import Operateur from './Interfaces/Operateur/Operateur';
+import { fetchWaterdata } from './App/Slices/waterDataSlice';
 
 function App() {
 
@@ -19,6 +20,9 @@ function App() {
   // console.log(states);
   
 
+  const date = new Date();
+  const today = date.toISOString().split('T')[0];
+  const startOfMonth = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-01`;
 
   const dispatch = useDispatch();
 
@@ -29,6 +33,7 @@ function App() {
     dispatch(fetchDevices());
     dispatch(fetchAccounts());
     dispatch(fetchNotifications(user?._id));
+    dispatch(fetchWaterdata({ start: startOfMonth, end: today }));
   }, [dispatch]);
   
 

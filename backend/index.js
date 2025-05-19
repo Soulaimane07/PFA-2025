@@ -10,6 +10,7 @@ const cityRoutes = require('./API/Routes/Regions/cityRoutes')
 const FactoriesRoutes = require('./API/Routes/Regions/factoriesRoutes')
 const devicesRoutes = require('./API/Routes/devicesRoutes')
 const mlRoutes = require('./API/Routes/mlRoutes');
+const waterDataRoutes = require('./API/Routes/waterDataRoutes');
 
 
 
@@ -17,7 +18,8 @@ const app = express();
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect("mongodb://root:example@localhost:27017/pfa2025?authSource=admin")
+// mongoose.connect("mongodb://root:example@localhost:27017/pfa2025?authSource=admin")
+mongoose.connect("mongodb+srv://soulaimanestudent7:Soulaimane%403200@cluster0.rthdnfa.mongodb.net")
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log(err));
 
@@ -40,6 +42,7 @@ app.use('/cities', cityRoutes)
 app.use('/factories', FactoriesRoutes)
 app.use('/devices', devicesRoutes)
 app.use('/ml', mlRoutes);
+app.use('/waterdata', waterDataRoutes);
 
 
 

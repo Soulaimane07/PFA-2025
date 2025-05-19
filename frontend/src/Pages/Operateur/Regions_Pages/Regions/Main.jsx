@@ -8,7 +8,7 @@ function Main() {
   const regions = useSelector((state) => state.regions.data);
   
   return (
-    <div className='bg-white p-4 px-5 w-full  rounded-md shadow-md'>
+    <div className='bg-white p-10 w-full  rounded-md shadow-md'>
       <div className='flex items-center justify-between mb-8'>
         <h1 className='text-2xl font-bold opacity-50 mb-4'> Regions </h1>
 
