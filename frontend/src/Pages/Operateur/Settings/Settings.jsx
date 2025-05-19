@@ -2,10 +2,10 @@ import React from 'react'
 import Header from '../../../Components/Header/Header'
 import Navbar from '../../../Components/Navbar/Navbar'
 
-function Settings() {
+function Settings({pages}) {
   return (
     <div className='bg-gray-50 flex'>
-        <Navbar />
+        <Navbar pages={pages} />
 
         <main className='flex-1 px-10 py-4'>
             <Header />

@@ -1,48 +1,12 @@
 import React from 'react'
-import { LuLayoutDashboard } from "react-icons/lu";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoHelpCircleOutline  } from "react-icons/io5";
-import { IoNotificationsOutline  } from "react-icons/io5";
-import { IoBarChartOutline } from "react-icons/io5";
-import { CiStreamOn } from "react-icons/ci";
-import { FiUsers } from "react-icons/fi";
-import { MdOutlinePlace } from "react-icons/md";
+
 import { Link, NavLink } from 'react-router-dom';
 
 
-function Navbar() {
-    const pages = [
-        {
-            "title": "Dashboard",
-            "icon": LuLayoutDashboard,
-            "link": "/"
-        },
-        {
-            "title": "Statistiques",
-            "icon": IoBarChartOutline,
-            "link": "/statistiques"
-        },
-        {
-            "title": "Regions",
-            "icon": MdOutlinePlace,
-            "link": "/regions"
-        },
-        {
-            "title": "Notifications",
-            "icon": IoNotificationsOutline ,
-            "link": "/notifications"
-        },
-        {
-            "title": "Devices",
-            "icon": CiStreamOn,
-            "link": "/devices"
-        },
-        {
-            "title": "Accounts",
-            "icon": FiUsers,
-            "link": "/accounts"
-        }
-    ]
+function Navbar({pages}) {
+    
 
     const others = [
         {
@@ -66,7 +30,7 @@ function Navbar() {
         <div className='mb-10 mt-10'>
             <h2 className='text-sm font-semibold opacity-40 mt-4'>Menu</h2>
             <ul className='mt-4 space-y-2'>
-                {pages.map((page, index) => (
+                {pages?.map((page, index) => (
                     <NavLink
                         to={page.link}
                         key={index}

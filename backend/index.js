@@ -9,6 +9,8 @@ const regionRoutes = require('./API/Routes/Regions/regionRoutes')
 const cityRoutes = require('./API/Routes/Regions/cityRoutes')
 const FactoriesRoutes = require('./API/Routes/Regions/factoriesRoutes')
 const devicesRoutes = require('./API/Routes/devicesRoutes')
+const mlRoutes = require('./API/Routes/mlRoutes');
+
 
 
 const app = express();
@@ -37,10 +39,9 @@ app.use('/regions', regionRoutes)
 app.use('/cities', cityRoutes)
 app.use('/factories', FactoriesRoutes)
 app.use('/devices', devicesRoutes)
-
-
-const mlRoutes = require('./API/Routes/mlRoutes');
 app.use('/ml', mlRoutes);
+
+
 
 // Start the server
 const PORT = 3000;

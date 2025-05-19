@@ -4,10 +4,10 @@ import Header from '../../../Components/Header/Header'
 import Main from './Main'
 
 
-function Notification() {
+function Notification({pages}) {
   return (
   <div className='bg-gray-50 flex'>
-        <Navbar />
+        <Navbar pages={pages} />
 
         <main className='flex-1 px-10 py-4'>
           <Header />

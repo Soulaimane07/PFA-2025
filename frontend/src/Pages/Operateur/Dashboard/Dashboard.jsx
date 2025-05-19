@@ -5,10 +5,14 @@ import Cards from './Cards'
 import Charts from './Charts'
 import Notifications from './Notifications'
 
-function Dashboard() {
+
+function Dashboard({pages}) {
+
+  
+
   return (
     <div className='bg-gray-50 flex'>
-        <Navbar />
+        <Navbar pages={pages} />
 
         <main className='flex-1 px-10 py-4'>
           <Header />
