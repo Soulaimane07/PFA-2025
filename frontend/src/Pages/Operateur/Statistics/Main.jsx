@@ -4,6 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchWaterdata } from '../../../App/Slices/waterDataSlice';
 import MonthlyWaterChart from './MonthlyWaterChart';
 import { BiSolidFileExport } from "react-icons/bi";
+import { AiOutlineHistory } from "react-icons/ai";
+import { Link } from 'react-router-dom';
+import PredictionBox from './PredictionBox';
+import { SimulateWaterpredict } from '../../../App/Slices/waterpredictSlice';
 
 
 const Main = () => {
@@ -22,9 +26,26 @@ const Main = () => {
 
   const { data, status, error } = useSelector(state => state.waterdata);
 
+
+
+
+
+
+  const [openpredict, setOpenpredict] = useState(false);
+
+
+
+  const AddIotWaterData = () => {
+      dispatch(SimulateWaterpredict())
+      setOpenpredict(true);
+  }
+
+  
+  
+
   return (
     <div className='bg-white p-10 px-10 w-full rounded-md shadow-md min-h-screen'>
-      <div className='flex items-center justify-between mb-8'>
+      <div className='flex items-center justify-between mb-18'>
         <h1 className='text-2xl font-bold opacity-50'> Water Monthly Data </h1>
         
         <div className='flex items-stretch gap-4'>
@@ -41,9 +62,9 @@ const Main = () => {
               <BiSolidFileExport size={20}/> 
               <span> Export Excel </span>
             </button>
-            <button className='bg-blue-500 font-semibold flex space-x-2 items-center cursor-pointer text-white px-5 py-2 rounded-md hover:bg-blue-600 transition-all'>
+            <button onClick={AddIotWaterData} className='bg-blue-500 font-semibold flex space-x-2 items-center cursor-pointer text-white px-5 py-2 rounded-md hover:bg-blue-600 transition-all'>
               <BiSolidFileExport size={20}/> 
-              <span> Add Water Data </span>
+              <span> Get Water Data </span>
             </button>
           </div>
         </div>
@@ -55,6 +76,8 @@ const Main = () => {
         {status === 'succeeded' && data.length > 0 && <MonthlyWaterChart />}
         {status === 'succeeded' && data.length === 0 && <NoData />}
       </div>
+
+      {openpredict && <PredictionBox setOpenpredict={setOpenpredict} />}
     </div>
   );
 };

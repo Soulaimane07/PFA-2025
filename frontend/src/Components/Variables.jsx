@@ -31,6 +31,8 @@ export const notifications = [
     },
 ]
 
+
+
 export const BarchartData = [
   {
       "title":"ِChart 1",
@@ -90,6 +92,10 @@ export const data = [
   { name: 'Group B', value: 300 },
   { name: 'Group C', value: 300 },
   { name: 'Group D', value: 200 },
-];
+]
 
-export const backendURL = "http://localhost:3000"
+;
+
+export const backendURL = "http://3.87.64.91:3001"
+export const backendURL2 = "http://3.87.64.91:3001"
+export const backendiot = "http://3.87.64.91:8000"

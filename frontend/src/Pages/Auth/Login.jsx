@@ -3,6 +3,7 @@ import { useState } from "react"
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import { DangerAlert } from "../../Components/Alerts/Alerts"
+import { backendURL2 } from "../../Components/Variables"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
@@ -19,7 +20,7 @@ export default function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    axios.post('http://localhost:3000/login', {email, password})
+    axios.post(`${backendURL2}/login`, {email, password})
       .then(res => {
         console.log(res.data)
         if(res.status === 200){

@@ -18,6 +18,7 @@ import { IoBarChartOutline } from "react-icons/io5";
 import { CiStreamOn } from "react-icons/ci";
 import { FiUsers } from "react-icons/fi";
 import { MdOutlinePlace } from "react-icons/md";
+import History from '../../Pages/Operateur/History/History'
 
 function Operateur() {
 
@@ -54,7 +55,10 @@ function Operateur() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Dashboard pages={pages} />} />
-        <Route path='/statistiques' element={<Statistics pages={pages} />} />
+        <Route path='/statistiques'>
+          <Route index element={<Statistics pages={pages} />} />
+          <Route path='history' element={<History pages={pages} />} />
+        </Route>
         <Route path='/regions' >
           <Route index element={<Regions pages={pages} />} />
           <Route path=':regionId' element={<Region pages={pages} />} />

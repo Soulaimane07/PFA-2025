@@ -12,7 +12,8 @@ import devicesiesReducer from './Slices/devicesSlice';
 import notificationsReducer from './Slices/notificationsSlice';
 import accountsSlice from './Slices/accountsSlice';
 
-import waterdataSlice from './Slices/waterDataSlice';
+import waterdataSlice from './Slices/waterdataSlice';
+import waterpredictSlice from './Slices/waterpredictSlice';
 
 
 
@@ -32,5 +33,6 @@ export const store = configureStore({
     accounts: accountsSlice,
     
     waterdata: waterdataSlice,
+    waterpredict: waterpredictSlice,
   },
 });

@@ -55,6 +55,10 @@ function CreateDevice({ setOpenCreate, device }) {
   const factories = useSelector(state => state.factories.data)
   
 
+
+  
+
+
   return (
     <div className="fixed top-0 left-0 w-full h-full bg-black/20 flex items-center justify-center">
       <div className="bg-white p-5 rounded-md shadow-md w-1/3 min-h-80 py-6">

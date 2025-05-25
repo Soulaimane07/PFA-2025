@@ -1,14 +1,4 @@
-import React, { use, useEffect, useState } from "react";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  CartesianGrid,
-  ResponsiveContainer,
-} from "recharts";
+import React from "react";
 import { useSelector } from 'react-redux'
 import PH from "../../../Components/Charts/PH";
 import Hardness from "../../../Components/Charts/Hardness";

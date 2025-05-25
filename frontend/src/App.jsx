@@ -35,6 +35,11 @@ function App() {
     dispatch(fetchNotifications(user?._id));
     dispatch(fetchWaterdata({ start: startOfMonth, end: today }));
   }, [dispatch]);
+
+
+  const waterPredict = useSelector(state => state.waterpredict);
+  console.log(waterPredict);
+  
   
 
   return (

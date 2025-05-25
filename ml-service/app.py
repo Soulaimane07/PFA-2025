@@ -11,11 +11,25 @@ import json
 import random
 import ssl
 import paho.mqtt.client as mqtt
+from fastapi.middleware.cors import CORSMiddleware
+
 
 from treatment_utils import suggest_treatment
 
 # ---------------- FastAPI Setup ----------------
 app = FastAPI()
+
+origins = ["*"]  # or list your allowed origins like ["http://localhost:3000", "https://yourdomain.com"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,          # allow all origins or restrict
+    allow_credentials=True,
+    allow_methods=["*"],            # allow all HTTP methods
+    allow_headers=["*"],            # allow all headers
+)
+
+
 model = joblib.load("model.pkl")
 
 class WaterData(BaseModel):
@@ -104,38 +118,51 @@ def start_iot_simulation():
     client.loop_start()
 
     try:
-            payload = {
-                "device_id": "WaterSensor01",
-                "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
-                "pH": round(random.uniform(6.5, 8.5), 2),
-                "Hardness": round(random.uniform(100, 300), 2),
-                "Solids": round(random.uniform(500, 1500), 2),
-                "Chloramines": round(random.uniform(0.5, 4), 2),
-                "Sulfate": round(random.uniform(50, 300), 2),
-                "Conductivity": round(random.uniform(200, 800), 2),
-                "Organic_carbon": round(random.uniform(1, 5), 2),
-                "Trihalomethanes": round(random.uniform(30, 100), 2),
-                "Turbidity": round(random.uniform(1, 5), 2),
-                "water_level": round(random.uniform(10, 100), 2),
-                "tank_capacity": 100.0
-            }
+        payload = {
+            "device_id": "WaterSensor01",
+            "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+            "pH": round(random.uniform(6.5, 8.5), 2),
+            "Hardness": round(random.uniform(100, 300), 2),
+            "Solids": round(random.uniform(500, 1500), 2),
+            "Chloramines": round(random.uniform(0.5, 4), 2),
+            "Sulfate": round(random.uniform(50, 300), 2),
+            "Conductivity": round(random.uniform(200, 800), 2),
+            "Organic_carbon": round(random.uniform(1, 5), 2),
+            "Trihalomethanes": round(random.uniform(30, 100), 2),
+            "Turbidity": round(random.uniform(1, 5), 2),
+            "water_level": round(random.uniform(10, 100), 2),
+            "tank_capacity": 100.0
+        }
 
-            client.publish(TOPIC, json.dumps(payload))
-            print(f"Sent: {payload}")
-            time.sleep(10)
+        # Publish the payload to MQTT topic
+        client.publish(TOPIC, json.dumps(payload))
+        print(f"Sent: {payload}")
 
-            prediction_result = predict_from_dict(payload)
-            print(f"Prediction Result: {prediction_result}")
+        # Get prediction result
+        prediction_result = predict_from_dict(payload)
+        print(f"Prediction Result: {prediction_result}")
+
+        time.sleep(3)
+        
+
+
+        return {
+            "payload": payload,
+            "prediction": prediction_result
+        }
 
     except Exception as e:
         print("IoT Simulation Error:", e)
+        return {"error": str(e)}
+
     finally:
         client.loop_stop()
         client.disconnect()
 
+
+
 # ---------------- IoT Trigger Endpoint ----------------
 @app.post("/simulate/iot")
 def simulate_iot_data():
-    t = threading.Thread(target=start_iot_simulation, daemon=True)
-    t.start()
-    return {"message": "IoT simulation started in the background"}
+    return start_iot_simulation()
+

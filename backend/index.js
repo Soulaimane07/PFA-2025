@@ -41,13 +41,14 @@ app.use('/regions', regionRoutes)
 app.use('/cities', cityRoutes)
 app.use('/factories', FactoriesRoutes)
 app.use('/devices', devicesRoutes)
+
 app.use('/ml', mlRoutes);
 app.use('/waterdata', waterDataRoutes);
 
 
 
 // Start the server
-const PORT = 3000;
+const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { backendURL } from '../../Components/Variables';
+import { backendURL, backendURL2 } from '../../Components/Variables';
 
 // Async thunk to fetch waterdata
 export const fetchWaterdata = createAsyncThunk(

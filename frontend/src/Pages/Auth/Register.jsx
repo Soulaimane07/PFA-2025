@@ -4,6 +4,7 @@ import React from "react"
 import { useState } from "react"
 import { DangerAlert } from "../../Components/Alerts/Alerts"
 import { Navigate, useNavigate } from "react-router-dom"
+import { backendURL2 } from "../../Components/Variables"
 
 export default function Register() {
   const [fullName, setFullName] = useState("")
@@ -15,7 +16,7 @@ export default function Register() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    axios.post("http://localhost:3000/signup", { fullName, email, password })
+    axios.post(`${backendURL2}/signup`, { fullName, email, password })
       .then((response) => {
         console.log(response.data)
         if(response.status === 201) {
