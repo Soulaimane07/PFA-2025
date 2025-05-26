@@ -96,6 +96,6 @@ export const data = [
 
 ;
 
-export const backendURL = "http://3.87.64.91:3001"
-export const backendURL2 = "http://3.87.64.91:3001"
-export const backendiot = "http://3.87.64.91:8000"
+export const backendURL = "https://docimd1ylkn3z.cloudfront.net"
+export const backendURL2 = "https://docimd1ylkn3z.cloudfront.net"
+export const backendiot = "https://d2x0ohgw8qmfgx.cloudfront.net"
