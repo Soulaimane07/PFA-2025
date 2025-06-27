@@ -20,22 +20,18 @@ The system aims to promote **sustainable water management**, reduce pollution, a
 
 ## 🧠 Technologies Used
 
-### Hardware
-- Arduino / ESP32 Microcontroller
-- pH Sensor
-- Turbidity Sensor
-- Temperature Sensor
-- TDS Sensor (Total Dissolved Solids)
-- WiFi/Bluetooth module for IoT connectivity
+
 
 ### Software
-- **Embedded C/C++** for microcontroller programming
 - **Python** for AI model development (e.g., scikit-learn, TensorFlow)
-- **Node.js / Flask** as backend server (optional)
-- **React / Angular** for the web dashboard (optional)
-- **Firebase / MQTT / ThingsBoard** for IoT communication
+- **Node.js and Flask** as backend server (Microservices)
+- **React** for the web dashboard
+- **AWS IOT Core** (MQTT)
+- **AWS** for deployment
+
 
 ---
 
-## 🛠️ Project Structure
+## 🛠️ System Design
+
 
